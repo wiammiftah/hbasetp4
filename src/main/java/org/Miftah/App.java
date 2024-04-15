@@ -1,4 +1,4 @@
-package org.reda;
+package org.Miftah;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
@@ -56,8 +56,8 @@ public class App {
 
             Table table = connection.getTable(tableName);
             Put put = new Put(Bytes.toBytes("1"));
-            put.addColumn(Bytes.toBytes(CF_PERSONAL_DATA), Bytes.toBytes("name"), Bytes.toBytes("Reda"));
-            put.addColumn(Bytes.toBytes(CF_PERSONAL_DATA), Bytes.toBytes("age"), Bytes.toBytes("21"));
+            put.addColumn(Bytes.toBytes(CF_PERSONAL_DATA), Bytes.toBytes("name"), Bytes.toBytes("Miftah"));
+            put.addColumn(Bytes.toBytes(CF_PERSONAL_DATA), Bytes.toBytes("age"), Bytes.toBytes("20"));
             put.addColumn(Bytes.toBytes(CF_PRO_DATA), Bytes.toBytes("dip"), Bytes.toBytes("BDCC ing"));
             table.put(put);
             System.out.println("Added !");
@@ -69,9 +69,9 @@ public class App {
             display(result);
 
             put = new Put(Bytes.toBytes("1"));
-            put.addColumn(Bytes.toBytes(CF_PERSONAL_DATA), Bytes.toBytes("name"), Bytes.toBytes("Reda"));
-            put.addColumn(Bytes.toBytes(CF_PERSONAL_DATA), Bytes.toBytes("age"), Bytes.toBytes("22"));
-            put.addColumn(Bytes.toBytes(CF_PRO_DATA), Bytes.toBytes("dip"), Bytes.toBytes("BDCC ing"));
+            put.addColumn(Bytes.toBytes(CF_PERSONAL_DATA), Bytes.toBytes("name"), Bytes.toBytes("Wiam"));
+            put.addColumn(Bytes.toBytes(CF_PERSONAL_DATA), Bytes.toBytes("age"), Bytes.toBytes("36"));
+            put.addColumn(Bytes.toBytes(CF_PRO_DATA), Bytes.toBytes("dip"), Bytes.toBytes("bigData"));
             table.put(put);
 
             System.out.println("The record has been updated !");
@@ -84,12 +84,12 @@ public class App {
             Delete delete = new Delete(Bytes.toBytes("1"));
             table.delete(delete);
 
-            System.out.println("The record has been deleted !");
+            System.out.println("Record deleted done!");
 
             admin.disableTable(tableName);
             admin.deleteTable(tableName);
 
-            System.out.println("The table has been deleted !");
+            System.out.println("Table deleted done!");
         } catch (Exception e) {
             System.err.println(e);
         }
